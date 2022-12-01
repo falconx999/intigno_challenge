@@ -1,0 +1,33 @@
+1. Write an SQL query to report the first name, last name, city, and state of each person in
+the Person table. If the address of a personId is not present in the Address table, report
+null instead.
+
+select FirstName, LastName, City, State
+from Person P
+left join Address A
+on P.PersonId=A.PersonId;
+
+
+
+2. Write an SQL query to find the employees who earn more than their managers.
+
+select e1.name from Employee e1 
+   join Employee e2 on e1.ManagerId = e2.Id 
+   where e2.salary < e1.salary
+
+
+
+3. Write an SQL query to report all the duplicate emails 
+
+select email from Person
+group by email
+ having count(email) > 1 ;
+
+
+
+4. Write an SQL query to report the first login date for each player
+
+select player_id, Min(email.date) as first login 
+from Activity 
+group by palyer_id
+   
